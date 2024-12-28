@@ -4,15 +4,6 @@ import swaggerOutput from "./swagger_output.json";
 import fs from "fs";
 import path from "path";
 
-export default function docs(app: Express) {
-    app.use(
-        "/docs",
-        swaggerUi.serve,
-        swaggerUi.setup(swaggerOutput, {
-          customCss: css,
-        })
-      );
-}
 
 const css = fs.readFileSync(
     path.resolve(
@@ -21,3 +12,10 @@ const css = fs.readFileSync(
     ),
     "utf-8"
   );
+
+export default function docs(app: Express) {
+    app.use("/docs",swaggerUi.serve, swaggerUi.setup(swaggerOutput, {
+          customCss: css,
+        })
+    );
+}

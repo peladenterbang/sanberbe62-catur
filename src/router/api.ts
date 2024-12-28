@@ -8,6 +8,9 @@ import orderDetailController from "../controller/orderDetail.controller";
 
 const router = express.Router();
 
+
+
+
 // auth router
 router.post("/auth/register", authController.register)
 router.post("/auth/login", authController.login)
