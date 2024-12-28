@@ -1,5 +1,4 @@
 import swaggerAutogen from "swagger-autogen";
-import path from "path"
 import { Express } from "express";
 
 
@@ -46,7 +45,7 @@ const doc = {
   };
 
 
-  const outputFile = path.resolve(__dirname, "./swagger_output.json");
-  const endpointsFiles = [path.resolve(__dirname, "../router/api.ts")];
+const outputFile = "./swagger_output.json";
+const endpointsFiles = ["../router/api.ts"];
 
 swaggerAutogen({ openapi: "3.0.0" })(outputFile, endpointsFiles, doc);
