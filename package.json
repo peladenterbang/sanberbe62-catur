@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "ts-node src/docs/swagger.ts",
     "start": "ts-node src/index.ts"
   },
   "author": "",
