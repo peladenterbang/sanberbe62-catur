@@ -49,4 +49,7 @@ const doc = {
   const outputFile = path.resolve(__dirname, "./swagger_output.json");
   const endpointsFiles = [path.resolve(__dirname, "../router/api.ts")];
 
+  console.log("Swagger Output Path:", outputFile);
+  console.log("Endpoint Files Path:", endpointsFiles);
+  
 swaggerAutogen({ openapi: "3.0.0" })(outputFile, endpointsFiles, doc);
