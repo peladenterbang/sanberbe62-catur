@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v0.0.1",
-    "title": "Dokumentasi API BukaToko",
-    "description": "Dokumentasi API BukaToko"
+    "title": "Dokumentasi API Sanbercode 62",
+    "description": "Dokumentasi API Sanbercode Tugas Final"
   },
   "servers": [
     {
@@ -14,403 +14,158 @@
   "paths": {
     "/auth/register": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/auth/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/auth/my-profile": {
       "get": {
-        "tags": [
-          "Auth"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/auth/edit-profile": {
       "put": {
-        "tags": [
-          "Auth"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProfileRequest"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProfileRequest"
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/auth/delete-profile": {
       "delete": {
-        "tags": [
-          "Auth"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "501": {
-            "description": "Not Implemented"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/product": {
       "post": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "responses": {
           "default": {
             "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       },
       "get": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       },
       "put": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "responses": {
           "default": {
             "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       },
       "delete": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "_req": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/products": {
       "get": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/categories": {
       "get": {
-        "tags": [
-          "Category"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/category": {
       "post": {
-        "tags": [
-          "Category"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "categoryName": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       },
       "delete": {
-        "tags": [
-          "Category"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "_id": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/order": {
       "get": {
-        "tags": [
-          "Order"
-        ],
         "description": "",
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       },
       "post": {
-        "tags": [
-          "Order"
-        ],
         "description": "",
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       },
       "put": {
-        "tags": [
-          "Order"
-        ],
         "description": "",
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       },
       "delete": {
-        "tags": [
-          "Order"
-        ],
         "description": "",
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "default": {
+            "description": ""
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     }
   },
@@ -433,9 +188,6 @@
             "type": "string",
             "example": "123412341"
           }
-        },
-        "xml": {
-          "name": "LoginRequest"
         }
       },
       "RegisterRequest": {
@@ -461,9 +213,6 @@
             "type": "string",
             "example": "123412341"
           }
-        },
-        "xml": {
-          "name": "RegisterRequest"
         }
       },
       "UpdateProfileRequest": {
@@ -489,9 +238,6 @@
             "type": "string",
             "example": "123412341"
           }
-        },
-        "xml": {
-          "name": "UpdateProfileRequest"
         }
       }
     }
