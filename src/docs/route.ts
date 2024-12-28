@@ -17,10 +17,6 @@ export default function docs(app: Express) {
     app.use("/docs",swaggerUi.serve, swaggerUi.setup(swaggerOutput, {
           customCss: css,
         })
-    ),
-    app.use(
-      "/docs",
-      express.static(path.join(__dirname, "node_modules/swagger-ui-dist"))
     )
 }
 
