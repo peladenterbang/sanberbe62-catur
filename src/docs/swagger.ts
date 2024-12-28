@@ -1,12 +1,13 @@
 import swaggerAutogen from "swagger-autogen";
+import path from "path"
 import { Express } from "express";
 
 
 const doc = {
     info: {
       version: "v0.0.1",
-      title: "Dokumentasi API BukaToko",
-      description: "Dokumentasi API BukaToko",
+      title: "Dokumentasi API Sanbercode 62",
+      description: "Dokumentasi API Sanbercode Tugas Final",
     },
     servers: [
       {
@@ -45,7 +46,7 @@ const doc = {
   };
 
 
-const outputFile = "./swagger_output.json";
-const endpointsFiles = ["../router/api.ts"];
+  const outputFile = path.resolve(__dirname, "./swagger_output.json");
+  const endpointsFiles = [path.resolve(__dirname, "../router/api.ts")];
 
 swaggerAutogen({ openapi: "3.0.0" })(outputFile, endpointsFiles, doc);
