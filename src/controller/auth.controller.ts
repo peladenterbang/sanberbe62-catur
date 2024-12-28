@@ -34,8 +34,18 @@ interface IRequestRegister extends Request{
     body: TRegisterBody
 }
 
+
 export default{
     async login(req: IRequestLogin, res: Response){
+        /**
+             #swagger.tags = ['Auth']
+                #swagger.requestBody = {
+                required: true,
+                schema: {
+                    $ref: "#/components/schemas/LoginRequest"
+                }
+            }
+        */
         try {
             const {email, password} = req.body;
             await loginSchema.validate({email,password});
@@ -53,6 +63,15 @@ export default{
         }
     },
     async register(req: IRequestRegister, res: Response){
+        /**
+            #swagger.tags = ['Auth']
+            #swagger.requestBody = {
+                required: true,
+                schema: {
+                    $ref: "#/components/schemas/RegisterRequest"
+                }
+            }
+        */
         try {
             const {fullName, username, email, password,confirmPassword, roles} = req.body
             await registrationSchema.validate({
@@ -74,7 +93,7 @@ export default{
 
             res.status(200).json({
                 data: result,
-                message: 'reqistration success ...'
+                message: 'registration success ...'
             })
         } catch (error) {
             const err = error as unknown as Error;
@@ -85,9 +104,15 @@ export default{
         }
     },
     async myProfile(req: IRequestWithUser, res: Response ){
+        /**
+             #swagger.tags = ['Auth']
+            #swagger.security = [{
+            "bearerAuth": []
+            }]
+        */
         try {
             const id = req.user?.id
-            const result = await UserModel.findById({id})
+            const result = await UserModel.findById(id)
             if(!result){
                 res.status(403).json({
                     data: null,
@@ -107,6 +132,18 @@ export default{
         }
     },
     async updateProfile(req: IRequestWithUser, res: Response){
+
+        /**
+        #swagger.tags = ['Auth']
+        #swagger.requestBody = {
+            required: true,
+            schema: {$ref: "#/components/schemas/UpdateProfileRequest"}
+            }
+            #swagger.security = [{
+            "bearerAuth": []
+            }]
+         */
+
         try {
             const id = req.user?.id;
             const result = await authService.updateProfile(
@@ -125,6 +162,12 @@ export default{
         }
     },
     async deleteUser(req: IRequestWithUser, res: Response){
+        /**
+             #swagger.tags = ['Auth']
+            #swagger.security = [{
+            "bearerAuth": []
+            }]
+        */
         try {
             const id = req.user?.id;
             const result = await authService.deleteUser(id as unknown as ObjectId);

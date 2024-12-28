@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const OrderDetailSchema = new Schema(
     {
-        product: [{
+        productId: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
         }],
@@ -18,10 +18,10 @@ const OrderDetailSchema = new Schema(
             required: true
         },
         order: {
-            type: [{
+            type: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Order"
-            }]
+            }
         }
     },
 ) 

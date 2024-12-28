@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import { encrypt } from "../utils/encryption";
+import mail from "../utils/mail";
 
 const Schema = mongoose.Schema;
 
@@ -8,7 +10,7 @@ export interface User {
     username: string,
     email: string,
     password: string,
-    roles: string,
+    roles: string[],
     profilePicture: string,
     createdAt?: string
 }
@@ -31,7 +33,7 @@ const UserSchema = new Schema({
         required: true
     },
     roles: {
-        type: String,
+        type: [String],
         enum: ["admin", "user"],
         default: ["user"]
     },
@@ -40,6 +42,41 @@ const UserSchema = new Schema({
         default: "user.jpg"
     }
 })
+
+
+UserSchema.pre("save", function(next) {
+    const user = this;
+    user.password = encrypt(user.password)
+    next()
+})
+
+UserSchema.post("save", async function (doc, next) {
+    const user = doc;
+
+
+    const content = await mail.render('register-success.ejs',{
+        username: user.username,
+    })
+    await mail.send({
+        to: user.email,
+        subject: "Registration success",
+        content,
+    })
+    next();
+})
+
+UserSchema.pre("updateOne", function(next){
+    const user = (this as unknown as {_update: any})._update as User
+    user.password = encrypt(user.password)
+    next()
+})
+
+UserSchema.methods.toJSON = function(){
+    const user = this.toObject();
+    delete user.password;
+    return user 
+}
+
 
 const UserModel = mongoose.model("User", UserSchema);
 export default UserModel;

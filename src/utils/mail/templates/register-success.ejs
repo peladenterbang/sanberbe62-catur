@@ -1,0 +1,78 @@
+<!-- registration_email_template.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to [Your App Name]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .email-header {
+            background-color: #0073e6;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-body {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .email-body h1 {
+            font-size: 24px;
+            color: #0073e6;
+        }
+        .email-footer {
+            background-color: #f9f9f9;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #666666;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #0073e6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Welcome to  our app <%= username %>!</h1>
+        </div>
+        <div class="email-body">
+            <p>Hi <%= username %>,</p>
+            <p>Thank you for registering with APP legit. We're thrilled to have you on board!</p>
+            <p>To get started, please verify your email address by clicking the button below:</p>
+            <a href="#" class="button">Verify Email</a>
+            <p>If you have any questions, feel free to contact our support team.</p>
+            <p>Best regards,<br>The APP legit Team</p>
+        </div>
+        <div class="email-footer">
+            <p>&copy; <%= new Date().getFullYear() %> . All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

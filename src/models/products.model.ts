@@ -1,23 +1,35 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose, { mongo, ObjectId, Types } from "mongoose";
 
 const Schema = mongoose.Schema;
+
+export interface Product {
+    productName: string,
+    description: string,
+    price: number,
+    qty: number,
+    categoryId: Types.ObjectId,
+    createdAt: string;
+    updatedAt: string;
+    _id?: Types.ObjectId;
+}
+
 
 const ProductSchema = new Schema(
     {
         productName: {
-            type: String,
+            type: Schema.Types.String,
             required: true,
         },
         description: {
-            type: String,
+            type: Schema.Types.String,
             required: true
         },
         price: {
-            type: Number,
+            type: Schema.Types.Number,
             required: true 
         },
         qty: {
-            type: Number,
+            type: Schema.Types.Number,
             required: true
         },
         categoryId: {
