@@ -21,7 +21,7 @@ const doc = {
           scheme: "bearer",
         },
       },
-      authSchemas: {
+      Schemas: {
         LoginRequest: {
           email: "joni2024@yopmail.com",
           password: "123412341",
@@ -41,9 +41,6 @@ const doc = {
           confirmPassword: "123412341",
         },
       },
-      productSchemas:{
-        
-      }
     },
   };
 
