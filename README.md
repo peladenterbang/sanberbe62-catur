@@ -9,7 +9,10 @@ final project berisi tentang beberapa fitur backend seperti :
 - dokumentasi API
 - deploy vercel
 
+--- 
+Documentation: 
 
-Vercel : https://sanberbe62-catur.vercel.app/ 
+- Vercel : https://sanberbe62-catur.vercel.app/docs
+- Youtube : https://youtu.be/jtRXN09OY0Y
 
 
