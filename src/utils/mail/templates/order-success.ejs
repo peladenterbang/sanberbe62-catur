@@ -26,8 +26,19 @@
         .order-details {
             margin: 20px 0;
         }
-        .order-item {
-            margin: 10px 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #007BFF;
+            color: white;
         }
         .footer {
             text-align: center;
@@ -51,16 +62,28 @@
             <p>Status: <strong><%= status %></strong></p>
 
             <h4>Ordered Items:</h4>
-            <ul>
-                <% orderItems.forEach(function(item, index) { %>
-                    <li class="order-item">
-                        <strong>Product Name:</strong> <%= productNames[index] %> <br>
-                        <strong>Product ID:</strong> <%= productIds[index] %> <br>
-                        <strong>Quantity:</strong> <%= item.quantity %> <br>
-                        <strong>Price:</strong> Rp<%= item.price.toFixed(2) %>
-                    </li>
-                <% }); %>
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orderItems.forEach(function(item, index) { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= productNames[index] %></td>
+                            <td><%= productIds[index] %></td>
+                            <td><%= item.quantity %></td>
+                            <td>Rp<%= item.price.toFixed(2) %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
         </div>
 
         <p>If you have any questions or concerns about your order, feel free to contact us.</p>
