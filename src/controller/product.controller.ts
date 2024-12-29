@@ -22,11 +22,14 @@ interface IPaginationQuery{
 export default {
     async create(req: Request, res: Response){
         /**
-         #swagger.tags = ['Products']
-        #swagger.security = [{
-            "bearerAuth": []
-            }]
-        }
+        #swagger.tags = ['Products']
+         
+        #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/CreateProductRequest"
+                    }
+                    }
         */
         try {
             const {productName, description, price, qty, categoryId} = req.body;
@@ -97,6 +100,12 @@ export default {
     async getProductByID(req: Request,res: Response){
          /**
          #swagger.tags = ['Products']
+         #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/getOneProduct"
+                    }
+                    }
         */
         try {
             const id = req.body._id;
@@ -114,12 +123,19 @@ export default {
         }
     },
     async updateProduct(req: Request, res: Response){
-         /**
+        /**
         #swagger.tags = ['Products']
-        #swagger.security = [{
-        "bearerAuth": []
-        }]
-        }
+        #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/UpdateProductRequest"
+                    }
+                    }#swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/UpdateProductRequest"
+                    }
+                    }
         */
         try {
             const id  = req.body._id;

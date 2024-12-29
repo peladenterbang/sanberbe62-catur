@@ -44,7 +44,7 @@ export default{
                     schema: {
                         $ref: "#/components/schemas/LoginRequest"
                     }
-                }
+                    }
             */
         try {
             const {email, password} = req.body;

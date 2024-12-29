@@ -41,6 +41,12 @@ export default{
         "bearerAuth": []
         }]
         }
+        #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/CreateOrderRequest"
+                    }
+                    }
         */
         try {
             const {grandTotal, orderItems, status} = req.body

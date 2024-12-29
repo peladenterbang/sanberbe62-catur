@@ -10,6 +10,12 @@ export default{
     async create(req: Request, res: Response) {
         /**
          #swagger.tags = ['Category']
+         #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/CreateCategoryRequest"
+                    }
+                    }
         */
         try {
             const {categoryName} = req.body 
