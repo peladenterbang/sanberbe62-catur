@@ -21,7 +21,7 @@ const doc = {
           scheme: "bearer",
         },
       },
-      Schemas: {
+      schemas: {
         LoginRequest: {
           email: "joni2024@yopmail.com",
           password: "123412341",

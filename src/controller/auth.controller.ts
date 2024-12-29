@@ -37,15 +37,15 @@ interface IRequestRegister extends Request{
 
 export default{
     async login(req: IRequestLogin, res: Response){
-        /**
-             #swagger.tags = ['Auth']
-                #swagger.requestBody = {
-                required: true,
-                schema: {
-                    $ref: "#/components/schemas/LoginRequest"
+            /**
+                 #swagger.tags = ['Auth']
+                    #swagger.requestBody = {
+                    required: true,
+                    schema: {
+                        $ref: "#/components/schemas/LoginRequest"
+                    }
                 }
-            }
-        */
+            */
         try {
             const {email, password} = req.body;
             await loginSchema.validate({email,password});
