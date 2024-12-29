@@ -139,7 +139,7 @@ export default{
             required: true,
             schema: {$ref: "#/components/schemas/UpdateProfileRequest"}
             }
-            #swagger.security = [{
+        #swagger.security = [{
             "bearerAuth": []
             }]
          */

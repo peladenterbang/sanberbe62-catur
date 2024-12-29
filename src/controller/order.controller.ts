@@ -37,16 +37,16 @@ export default{
     async create(req: IRequestWithUser, res: Response){
         /**
         #swagger.tags = ['Order']
-        #swagger.security = [{
-        "bearerAuth": []
-        }]
-        }
         #swagger.requestBody = {
                     required: true,
                     schema: {
                         $ref: "#/components/schemas/CreateOrderRequest"
                     }
                     }
+        #swagger.security = [{
+        "bearerAuth": []
+        }]
+        }
         */
         try {
             const {grandTotal, orderItems, status} = req.body
